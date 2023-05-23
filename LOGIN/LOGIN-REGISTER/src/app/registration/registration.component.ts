@@ -6,5 +6,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./registration.component.css']
 })
 export class RegistrationComponent {
+  
+onSubmit(f:any) {
+  console.log(f.value);
+}
 
 }
+

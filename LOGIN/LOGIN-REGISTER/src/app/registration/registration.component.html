@@ -1,65 +1,144 @@
-<div class="container">
-    <div class="position-absolute top-0 end-0 mt-5 me-5">
-        <button class="btn btn-primary"><a class="text-white" href="javascript:void(0);" routerLink="/">Home</a></button>
-    </div>
-    <form class="form" role="form">
-        <h1>Registration</h1>
-        <div class="form-group">
-            <label for="firstName" class="col-sm-3 control-label">First Name</label>
-            <div class="col-sm-3">
-                <input type="text" id="firstName" placeholder="First Name" class="form-control">
-            </div>
-            <label for="lastName" class="col-sm-3 control-label">Last Name</label>
-            <div class="col-sm-3">
-                <input type="text" id="lastName" placeholder="Last Name" class="form-control">
-            </div>
-        </div>
-        <div class="form-group">
-            <label for="email" class="col-sm-3 control-label">Email* </label>
-            <div class="col-sm-9">
-                <input type="email" id="email" placeholder="Email" class="form-control" name= "email">
-            </div>
-        </div>
-        <div class="form-group">
-            <label for="password" class="col-sm-3 control-label">Password*</label>
-            <div class="col-sm-9">
-                <input type="password" id="password" placeholder="Password" class="form-control">
-            </div>
-        </div>
-        <div class="form-group">
-            <label for="password" class="col-sm-3 control-label">Confirm Password*</label>
-            <div class="col-sm-9">
-                <input type="password" id="password" placeholder="Password" class="form-control">
-            </div>
-        </div>
-        <div class="form-group">
-            <label for="birthDate" class="col-sm-3 control-label">Date of Birth*</label>
-            <div class="col-sm-9">
-                <input type="date" id="birthDate" class="form-control">
-            </div>
-        </div>
-        <div class="form-group">
-            <label class="control-label col-sm-3">Gender</label>
-            <div class="col-sm-12">
-                <div class="row">
-                    <div class="col-sm-2">
-                        <label class="radio-inline">
-                            <input type="radio" name="button" id="maleRadio" value="Male">Male
-                        </label>
+<div class="container mt-5">
+    <form #f='ngForm' (ngSubmit)="onSubmit(f)">
+        <h1 class="text-center">Registration </h1>
+        <div class="row">
+            <div class="col-sm-5 mt-5">
+                <label for="firstName" class="col-sm-4 control-label">First Name*</label>
+                <input type="text" class="form-control" placeholder="First Name" name="firstName" ngModel
+                    #firstName="ngModel" required>
+                <div *ngIf="firstName.errors?.['required']">
+                    <div class="alert alert-danger mt-2" *ngIf="firstName.touched &&firstName.invalid"> FIRST NAME
+                        REQUIRED
                     </div>
-                    <div class="col-sm-2">
-                        <label class="radio-inline">
-                            <input type="radio" name="button" id="femaleRadio" value="Female">Female
-                        </label>
-                    </div>
-                        <div class="col-sm-2">
-                            <label class="radio-inline">
-                                <input type="radio" name="button" id="othersRadio" value="Others">Others
-                            </label>
+                </div>
+            </div>
+            <div class="col-sm-5 mt-5">
+                <label for="lastName" class="col-sm-4 control-label">Last Name*</label>
+                <input type="text" class="form-control" placeholder="Last Name" name="lastName" ngModel
+                    #lastName="ngModel" required>
+                <div *ngIf="firstName.errors?.['required']">
+                    <div class="alert alert-danger mt-2" *ngIf="lastName.touched &&lastName.invalid"> LAST NAME REQUIRED
                     </div>
                 </div>
             </div>
         </div>
-        <button type="submit" class="btn btn-primary btn-block d-block mx-auto mt-2">Register</button>
+        <div class="row form-group">
+            <div class="col-sm-5 mt-2">
+                <label for="Username" class="col-sm-4 control-label">Username*</label>
+                <input type="text" class="form-control" placeholder="Username" name="Username" ngModel
+                    #Username="ngModel" required>
+                <div *ngIf="Username.errors?.['required']">
+                    <div class="alert alert-danger mt-2" *ngIf="Username.touched &&Username.invalid"> USER NAME REQUIRED
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-5 mt-2">
+                <label class="col-sm-4 control-label" name="Email" ngModel #Email="ngModel" required
+                    minlength="3">Email* </label>
+                <input type="email" placeholder="Email" class="form-control" name="Email" ngModel #Email="ngModel"
+                    required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
+                <div *ngIf="Email.errors?.['required']">
+                    <div class="alert alert-danger mt-2" *ngIf="Email.touched &&Email.invalid"> EMAIL REQUIRED
+                    </div>
+                </div>
+                <div *ngIf="Email.errors?.['pattern']">
+                    <div class="alert alert-danger mt-2" *ngIf="Email.touched && Email.invalid">
+                        EMAIL SHOULD BE VALID</div>
+                </div>
+            </div>
+        </div>
+        <div class="row form-group">
+            <div class="col-sm-5 mt-2">
+                <label for="password" class="col-sm-3 control-label">Password*</label>
+                <input type="password" placeholder="Password" class="form-control" name="password" ngModel
+                    #password="ngModel" minlength="8" required>
+                <div *ngIf="password.errors?.['required']">
+                    <div class="alert alert-danger mt-2" *ngIf="password.touched &&password.invalid">
+                        PASSWORD REQUIRED
+                    </div>
+                </div>
+                <div *ngIf="password.errors?.['minlength']">
+                    <div class="alert alert-danger mt-2" *ngIf="password.touched && password.invalid">
+                        PASSWORD SHOULD BE ATLEAST 8 CHARACTERS</div>
+                </div>
+            </div>
+            <div class="col-sm-5 mt-2">
+                <label for="confirmpassword" class="col-sm-8 control-label">Confirm Password*</label>
+                <input type="password" placeholder="Confirm Password" class="form-control" name="confirmpassword"
+                    ngModel #confirmpassword="ngModel" minlength="8" required>
+                <div *ngIf="confirmpassword.errors?.['required']">
+                    <div class="alert alert-danger mt-2" *ngIf="confirmpassword.touched &&confirmpassword.invalid">
+                        PASSWORD REQUIRED
+                    </div>
+                </div>
+                <div *ngIf="confirmpassword.errors?.['minlength']">
+                    <div class="alert alert-danger mt-2" *ngIf="confirmpassword.touched && confirmpassword.invalid">
+                        PASSWORD SHOULD BE ATLEAST 8 CHARACTERS</div>
+                </div>
+                <div *ngIf="confirmpassword.errors?.['minlength']">
+                    <div class="alert alert-danger mt-2" *ngIf="confirmpassword.touched &&confirmpassword  !==password">
+                        PASSWORD DOESNOT MATCH</div>
+                </div>
+            </div>
+        </div>
+        <div class="row form-group">
+            <div class="col-sm-5  mt-2">
+                <label for="birthDate" class="col-sm-5 control-label">Date of Birth*</label>
+
+                <input type="date" id="birthDate" class="form-control" required name="birthDate" ngModel
+                    #birthDate="ngModel">
+            </div>
+            <div class="col-sm-5 mt-2">
+                <label class="row control-label col-sm-3 mt-2" name="Gender" ngModel #Gender="ngModel">Gender</label>
+                <div class="row">
+                    <div class="col-sm-3">
+                        <label class="radio-inline mt-2">
+                            <input type="radio" name="button" id="maleRadio" value="Male">Male
+                        </label>
+                    </div>
+                    <div class="col-sm-3">
+                        <label class="radio-inline mt-2">
+                            <input type="radio" name="button" id="femaleRadio" value="Female">Female
+                        </label>
+                    </div>
+                    <div class="col-sm-3">
+                        <label class="radio-inline mt-2">
+                            <input type="radio" name="button" id="othersRadio" value="Others">Others
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row form-group">
+            <div class="col-sm-4 mt-2">
+                <label for="regno" class="col-sm-5 control-label">Register Number*</label>
+                <input type="number" class="form-control" name="regno" ngModel
+                    #regno="ngModel" required>
+                <div *ngIf="password.errors?.['required']">
+                    <div class="alert alert-danger mt-2" *ngIf="regno.touched &&regno.invalid">
+                        REGISTER NUMBER REQUIRED
+                    </div>
+                </div>
+                <div class="col-sm-4 mt-2">
+                    <label for="phno" class="col-sm-5 control-label">Phone Number*</label>
+                    <input type="number" class="form-control" name="phno" ngModel
+                        #phno="ngModel" required>
+                    <div *ngIf="password.errors?.['required']">
+                        <div class="alert alert-danger mt-2" *ngIf="phno.touched &&phno.invalid">
+                            PHONE NUMBER REQUIRED
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+        <div class="row">
+            <div class="col">
+                <div class="d-flex justify-content-center">
+                    <button type="submit" class="btn btn-primary justify-content-center mt-4 me-3">Register</button>
+                    <button class="btn btn-primary justify-content-center  mt-4">
+                        <a class="text-white" href="javascript:void(0);" routerLink="/">Home</a></button>
+                </div>
+            </div>
+        </div>
     </form>
 </div>
