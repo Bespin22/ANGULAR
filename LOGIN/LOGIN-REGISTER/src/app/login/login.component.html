@@ -3,75 +3,59 @@
     <div class="col-md-8">
       <div class="card ">
         <div class="card-header text-center p-3 mb-2 bg-primary text-white">
-          Login
+          <strong>LOGIN</strong>
         </div>
-       <div class="card-body border border-dark">
-          <form #f ='ngForm' (ngSubmit)="onSubmit(f)">
+        <div class="card-body border border-dark">
+          <form #f='ngForm' (ngSubmit)="onSubmit(f)">
             <label class="form-group">Email address or User name</label>
-            <input  class="form-control" name="username_or_email" ngModel #Email="ngModel" required 
-            minlength="3">
+            <input class="form-control" name="username_or_email" [(ngModel)]="username_or_email" #Email="ngModel"
+              required minlength="3">
             <div *ngIf="Email.errors?.['required']">
               <div class="alert alert-danger mt-2" *ngIf="Email.touched &&Email.invalid"> EMAIL OR USERNAME REQUIRED
               </div>
-               </div>
+            </div>
             <div *ngIf="Email.errors?.['minlength']">
               <div class="alert alert-danger mt-2" *ngIf="Email.touched && Email.invalid">
                 EMAIL OR USERNAME SHOULD BE ATLEAST 3 CHARACTERS</div>
             </div>
             <div class="mb-3">
-              <label for="password" class="form-group"  >Password</label>
-              <input type="password" class="form-control" name="password" ngModel #password="ngModel" minlength="8" required>
-              <div *ngIf="password.errors?.['required']">
-                <div class="alert alert-danger mt-2" *ngIf="password.touched &&password.invalid">
-                PASSWORD REQUIRED
+              <label for="password" class="form-group">Password</label>
+              <input type="password" class="form-control" name="password" [(ngModel)]="password" #passwordd="ngModel" minlength="8"
+                required>
+                <!-- <span class="password-toggle" (click)="togglePasswordVisibility()">
+                  <i class="fa" [class.fa-eye]="showPassword" [class.fa-eye-slash]="!showPassword"></i>
+                </span> -->
+              <div *ngIf="passwordd.errors?.['required']">
+                <div class="alert alert-danger mt-2" *ngIf="passwordd.touched &&passwordd.invalid">
+                  PASSWORD REQUIRED
                 </div>
-                 </div>
-              <div *ngIf="password.errors?.['minlength']">
-                <div class="alert alert-danger mt-2" *ngIf="password.touched && password.invalid">
+              </div>
+              <div *ngIf="passwordd.errors?.['minlength']">
+                <div class="alert alert-danger mt-2" *ngIf="passwordd.touched && passwordd.invalid">
                   PASSWORD SHOULD BE ATLEAST 8 CHARACTERS</div>
               </div>
             </div>
             <div class="form-group">
-							<div class="custom-control custom-checkbox">
-								<input type="checkbox" class="custom-control-input" id="customControlInline">
-								<label class="custom-control-label" for="customControlInline">Remember me</label>
-							</div>
-						</div>
+              <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" id="customControlInline" name="rememberMe"
+                  [(ngModel)]="rememberMe">
+                <label class="custom-control-label" for="customControlInline">
+                  Remember me
+                </label>
+              </div>
+            </div>
             <div class="d-flex mt-2 links">
-              <a href="#" routerLink="/forgot-password">Forgot Password?</a>
+              <a href="#" routerLink="/forgotpassword">Forgot Password?</a>
             </div>
             <button type="Submit" class="btn btn-primary d-block mx-auto mt-2">LOGIN</button>
           </form>
         </div>
-       </div>
+      </div>
       <div class="card mt-2">
-          <p class="text-center">New user?</p>
-          <button class="btn btn-success w-100"><a class="text-white" href="javascript:void(0);" routerLink="/Register" >Register</a></button>
-        </div>
+        <p class="text-center">New user?</p>
+        <button class="btn btn-success w-100 text-white"  href="javascript:void(0);"
+            routerLink="/Register">Register</button>
       </div>
     </div>
   </div>
-
-  <!-- <div class="container mt-5">
-    <div class="card">
-      <div class="card-header">
-        <h3>Login</h3>
-      </div>
-      <div class="card-body">
-        <form (ngSubmit)="login()" #loginForm="ngForm">
-          <div class="mb-3">
-            <label for="username" class="form-label">Username</label>
-            <input type="text" class="form-control" id="username" name="username" [(ngModel)]="username" required>
-            <div *ngIf="loginForm.controls.username?.touched && loginForm.controls.username?.errors?.required" class="text-danger">Username is required.</div>
-          </div>
-          <div class="mb-3">
-            <label for="password" class="form-label">Password</label>
-            <input type="password" class="form-control" id="password" name="password" [(ngModel)]="password" required>
-            <div *ngIf="loginForm.controls.password?.touched && loginForm.controls.password?.errors?.required" class="text-danger">Password is required.</div>
-          </div>
-          <button type="submit" class="btn btn-primary" [disabled]="!loginForm.valid">Login</button>
-        </form>
-      </div>
-    </div>
-  </div> -->
-  
+</div>

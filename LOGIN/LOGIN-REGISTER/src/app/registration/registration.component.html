@@ -4,45 +4,46 @@
         <div class="row">
             <div class="col-sm-5 mt-5">
                 <label for="firstName" class="col-sm-4 control-label">First Name*</label>
-                <input type="text" class="form-control" placeholder="First Name" name="firstName" ngModel
-                    #firstName="ngModel" required>
-                <div *ngIf="firstName.errors?.['required']">
-                    <div class="alert alert-danger mt-2" *ngIf="firstName.touched &&firstName.invalid"> FIRST NAME
+                <input type="text" class="form-control" placeholder="First Name" name="first_name" ngModel
+                    #first_name="ngModel" required>
+                <div *ngIf="first_name.errors?.['required']">
+                    <div class="alert alert-danger mt-2" *ngIf="first_name.touched &&first_name.invalid"> FIRST NAME
                         REQUIRED
                     </div>
                 </div>
             </div>
             <div class="col-sm-5 mt-5">
                 <label for="lastName" class="col-sm-4 control-label">Last Name*</label>
-                <input type="text" class="form-control" placeholder="Last Name" name="lastName" ngModel
-                    #lastName="ngModel" required>
-                <div *ngIf="firstName.errors?.['required']">
-                    <div class="alert alert-danger mt-2" *ngIf="lastName.touched &&lastName.invalid"> LAST NAME REQUIRED
+                <input type="text" class="form-control" placeholder="Last Name" name="last_name" ngModel
+                    #last_name="ngModel" required>
+                <div *ngIf="first_name.errors?.['required']">
+                    <div class="alert alert-danger mt-2" *ngIf="last_name.touched &&last_name.invalid"> LAST NAME
+                        REQUIRED
                     </div>
                 </div>
             </div>
         </div>
         <div class="row form-group">
             <div class="col-sm-5 mt-2">
-                <label for="Username" class="col-sm-4 control-label">Username*</label>
-                <input type="text" class="form-control" placeholder="Username" name="Username" ngModel
-                    #Username="ngModel" required>
-                <div *ngIf="Username.errors?.['required']">
-                    <div class="alert alert-danger mt-2" *ngIf="Username.touched &&Username.invalid"> USER NAME REQUIRED
+                <label for="username" class="col-sm-4 control-label">Username*</label>
+                <input type="text" class="form-control" placeholder="Username" name="username" ngModel
+                    #username="ngModel" required>
+                <div *ngIf="username.errors?.['required']">
+                    <div class="alert alert-danger mt-2" *ngIf="username.touched &&username.invalid"> USER NAME REQUIRED
                     </div>
                 </div>
             </div>
             <div class="col-sm-5 mt-2">
-                <label class="col-sm-4 control-label" name="Email" ngModel #Email="ngModel" required
+                <label class="col-sm-4 control-label" name="email" ngModel #email="ngModel" required
                     minlength="3">Email* </label>
-                <input type="email" placeholder="Email" class="form-control" name="Email" ngModel #Email="ngModel"
+                <input type="email" placeholder="Email" class="form-control" name="email" ngModel #email="ngModel"
                     required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
-                <div *ngIf="Email.errors?.['required']">
-                    <div class="alert alert-danger mt-2" *ngIf="Email.touched &&Email.invalid"> EMAIL REQUIRED
+                <div *ngIf="email.errors?.['required']">
+                    <div class="alert alert-danger mt-2" *ngIf="email.touched &&email.invalid"> EMAIL REQUIRED
                     </div>
                 </div>
-                <div *ngIf="Email.errors?.['pattern']">
-                    <div class="alert alert-danger mt-2" *ngIf="Email.touched && Email.invalid">
+                <div *ngIf="email.errors?.['pattern']">
+                    <div class="alert alert-danger mt-2" *ngIf="email.touched && email.invalid">
                         EMAIL SHOULD BE VALID</div>
                 </div>
             </div>
@@ -63,82 +64,72 @@
                 </div>
             </div>
             <div class="col-sm-5 mt-2">
-                <label for="confirmpassword" class="col-sm-8 control-label">Confirm Password*</label>
-                <input type="password" placeholder="Confirm Password" class="form-control" name="confirmpassword"
-                    ngModel #confirmpassword="ngModel" minlength="8" required>
-                <div *ngIf="confirmpassword.errors?.['required']">
-                    <div class="alert alert-danger mt-2" *ngIf="confirmpassword.touched &&confirmpassword.invalid">
-                        PASSWORD REQUIRED
+                <label for="age" class="col-sm-6 control-label">Age*</label>
+                <input type="number" class="form-control" name="age" ngModel #age="ngModel" required>
+                <div *ngIf="age.errors?.['required']">
+                    <div class="alert alert-danger mt-2" *ngIf="age.touched &&age.invalid">
+                        AGE REQUIRED
                     </div>
-                </div>
-                <div *ngIf="confirmpassword.errors?.['minlength']">
-                    <div class="alert alert-danger mt-2" *ngIf="confirmpassword.touched && confirmpassword.invalid">
-                        PASSWORD SHOULD BE ATLEAST 8 CHARACTERS</div>
-                </div>
-                <div *ngIf="confirmpassword.errors?.['minlength']">
-                    <div class="alert alert-danger mt-2" *ngIf="confirmpassword.touched &&confirmpassword  !==password">
-                        PASSWORD DOESNOT MATCH</div>
                 </div>
             </div>
         </div>
         <div class="row form-group">
             <div class="col-sm-5  mt-2">
                 <label for="birthDate" class="col-sm-5 control-label">Date of Birth*</label>
-
-                <input type="date" id="birthDate" class="form-control" required name="birthDate" ngModel
-                    #birthDate="ngModel">
+                <input type="date" id="birthDate" class="form-control" required name="dob" ngModel #dob="ngModel">
             </div>
             <div class="col-sm-5 mt-2">
-                <label class="row control-label col-sm-3 mt-2" name="Gender" ngModel #Gender="ngModel">Gender</label>
+                <label class="row control-label col-sm-3 mt-2" name="gender" ngModel #gender="ngModel">Gender</label>
                 <div class="row">
                     <div class="col-sm-3">
                         <label class="radio-inline mt-2">
-                            <input type="radio" name="button" id="maleRadio" value="Male">Male
+                            <input type="radio" name="button" value="Male">Male
                         </label>
                     </div>
                     <div class="col-sm-3">
                         <label class="radio-inline mt-2">
-                            <input type="radio" name="button" id="femaleRadio" value="Female">Female
+                            <input type="radio" name="button" value="Female">Female
                         </label>
                     </div>
                     <div class="col-sm-3">
                         <label class="radio-inline mt-2">
-                            <input type="radio" name="button" id="othersRadio" value="Others">Others
+                            <input type="radio" name="button" value="Others">Others
                         </label>
                     </div>
                 </div>
             </div>
         </div>
         <div class="row form-group">
-            <div class="col-sm-4 mt-2">
-                <label for="regno" class="col-sm-5 control-label">Register Number*</label>
-                <input type="number" class="form-control" name="regno" ngModel
-                    #regno="ngModel" required>
-                <div *ngIf="password.errors?.['required']">
-                    <div class="alert alert-danger mt-2" *ngIf="regno.touched &&regno.invalid">
+            <div class="col-sm-5 mt-2">
+                <label for="regno" class="col-sm-6 control-label">Register Number*</label>
+                <input type="number" class="form-control" name="reg_no" ngModel #reg_no="ngModel" required>
+                <div *ngIf="reg_no.errors?.['required']">
+                    <div class="alert alert-danger mt-2" *ngIf="reg_no.touched &&reg_no.invalid">
                         REGISTER NUMBER REQUIRED
                     </div>
                 </div>
-                <div class="col-sm-4 mt-2">
-                    <label for="phno" class="col-sm-5 control-label">Phone Number*</label>
-                    <input type="number" class="form-control" name="phno" ngModel
-                        #phno="ngModel" required>
-                    <div *ngIf="password.errors?.['required']">
-                        <div class="alert alert-danger mt-2" *ngIf="phno.touched &&phno.invalid">
-                            PHONE NUMBER REQUIRED
-                        </div>
+            </div>
+            <div class="col-sm-5 mt-2">
+                <label for="phno" class="col-sm-5 control-label">Phone Number*</label>
+                <input type="number" class="form-control" name="phonenumber" ngModel #phonenumber="ngModel" required>
+                <div *ngIf="phonenumber.errors?.['required']">
+                    <div class="alert alert-danger mt-2" *ngIf="phonenumber.touched &&phonenumber.invalid">
+                        PHONE NUMBER REQUIRED
+
                     </div>
                 </div>
             </div>
-            </div>
+        </div>
+
         <div class="row">
             <div class="col">
                 <div class="d-flex justify-content-center">
                     <button type="submit" class="btn btn-primary justify-content-center mt-4 me-3">Register</button>
-                    <button class="btn btn-primary justify-content-center  mt-4">
-                        <a class="text-white" href="javascript:void(0);" routerLink="/">Home</a></button>
+                    <button class="btn btn-primary justify-content-center  mt-4 text-white"
+                         href="javascript:void(0);" routerLink="/">Home</button>
                 </div>
             </div>
         </div>
+
     </form>
 </div>

@@ -9,12 +9,16 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { RouterModule,Routes } from '@angular/router';
-import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
+import { ForgotpasswordComponent } from './forgotpassword/forgotpassword.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+
 
 const routes:Routes = [
   {path:'',component:LoginComponent},
   {path:'Register',component:RegistrationComponent},
-  {path:'forgot-password',component:ForgotPasswordComponent}
+  {path:'forgotpassword',component:ForgotpasswordComponent},
+  {path:'dashboard',component:DashboardComponent},
+
 ]
 
 @NgModule({
@@ -22,15 +26,16 @@ const routes:Routes = [
     AppComponent,
     LoginComponent,
     RegistrationComponent,
-    ForgotPasswordComponent,  
-    
+    ForgotpasswordComponent,
+    DashboardComponent,
   ],
   imports: [
     BrowserModule,ReactiveFormsModule,
     HttpClientModule,
     AppRoutingModule,RouterModule.forRoot(routes),
-    FormsModule
+    FormsModule,
   ],
+  exports: [RouterModule],
   providers: [],
   bootstrap: [AppComponent]
 })
