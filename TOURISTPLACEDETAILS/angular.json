@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "LOGINREGISTER": {
+    "TOURISTPLACEDETAILS": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/loginregister",
+            "outputPath": "dist/touristplacedetails",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": [
@@ -60,10 +60,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "LOGINREGISTER:build:production"
+              "browserTarget": "TOURISTPLACEDETAILS:build:production"
             },
             "development": {
-              "browserTarget": "LOGINREGISTER:build:development"
+              "browserTarget": "TOURISTPLACEDETAILS:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -71,7 +71,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "LOGINREGISTER:build"
+            "browserTarget": "TOURISTPLACEDETAILS:build"
           }
         },
         "test": {
@@ -96,6 +96,6 @@
     }
   },
   "cli": {
-    "analytics": "363e7792-6e07-4afe-88ff-c08d2a82fba3"
+    "analytics": "580cdce8-fbb8-4804-a504-316d51f1eebe"
   }
 }
