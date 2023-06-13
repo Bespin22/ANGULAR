@@ -1,0 +1,14 @@
+<form (ngSubmit)="onSearch(searchInput.value)">
+  <input type="text" #searchInput placeholder="Enter a word">
+  <button type="submit">Search</button>
+</form>
+
+<div *ngIf="searchResult && searchResult.length > 0">
+  <h2>{{ searchResult[0].word }}</h2>
+  <div *ngFor="let meaning of searchResult[0].meanings">
+    <h4>{{ meaning.partOfSpeech }}</h4>
+    <ul>
+      <li *ngFor="let definition of meaning.definitions">{{ definition.definition }}</li>
+    </ul>
+  </div>
+</div>
