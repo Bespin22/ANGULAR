@@ -1,0 +1,53 @@
+<div class="container mt-5">
+    <form #f="" (ngSubmit)="onSubmit">
+      <h1 class="text-center">Add user</h1>
+      <div class="row">
+        <div class="col-sm-5 mt-5">
+          <label for="firstName" class="col-sm-4 control-label">First Name*</label>
+          <input type="text" class="form-control" placeholder="First Name" name="first_name"  required>
+          <div *ngIf="f.controls['first_name'].touched && f.controls['first_name'].invalid" class="alert alert-danger mt-2">
+            FIRST NAME REQUIRED
+          </div>
+        </div>
+        <div class="col-sm-5 mt-5">
+          <label for="lastName" class="col-sm-4 control-label">Last Name*</label>
+          <input type="text" class="form-control" placeholder="Last Name" name="last_name"  required>
+          <div *ngIf="f.controls['last_name'].touched && f.controls['last_name'].invalid" class="alert alert-danger mt-2">
+            LAST NAME REQUIRED
+          </div>
+        </div>
+      </div>
+      <div class="row form-group">
+        <div class="col-sm-5 mt-2">
+          <label for="username" class="col-sm-4 control-label">Fullname*</label>
+          <input type="text" class="form-control" placeholder="Username" name="username"  required>
+          <div *ngIf="f.controls['username'].touched && f.controls['username'].invalid" class="alert alert-danger mt-2">
+            USER NAME REQUIRED
+          </div>
+        </div>
+        <div class="col-sm-5 mt-2">
+          <label class="col-sm-4 control-label">Email*</label>
+          <input type="email" placeholder="Email" class="form-control" name="email"  required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
+          <div *ngIf="f.controls['email'].touched && f.controls['email'].invalid" class="alert alert-danger mt-2">
+            EMAIL REQUIRED
+          </div>
+          <div *ngIf="f.controls['email'].errors?.pattern" class="alert alert-danger mt-2">
+            EMAIL SHOULD BE VALID
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-5 mt-2">
+        <label for="phno" class="col-sm-5 control-label">Phone Number*</label>
+        <input type="number" class="form-control" name="phonenumber"  required>
+        <div *ngIf="f.controls['phonenumber'].touched && f.controls['phonenumber'].invalid" class="alert alert-danger mt-2">
+          PHONE NUMBER REQUIRED
+        </div>
+      </div>
+      <div class="col-sm-5 mt-2">
+        <label for="status" class="col-sm-5 control-label">Status</label>
+        <input type="text" class="form-control" name="status" >
+      </div>
+      <button type="submit" class="btn btn-primary mt-3">Submit</button>
+    </form>
+  </div>
+  

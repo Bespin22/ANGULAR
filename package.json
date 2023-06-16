@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "@angular/forms": "^16.1.1",
+    "bootstrap": "^5.3.0"
+  }
+}
