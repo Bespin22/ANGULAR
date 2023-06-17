@@ -1,6 +1,8 @@
+<!-- add-user.component.html -->
 <div class="container mt-5">
-  <form #f="" (ngSubmit)="onSubmit">
-    <h1 class="text-center">Add user</h1>
+  <form #f="ngForm" (ngSubmit)="onSubmit(f)">
+    <h1 class="text-center">Add User</h1>
+    
     <div class="row">
       <div class="col-sm-5 mt-5">
         <label for="firstName" class="col-sm-4 control-label">First Name*</label>
@@ -36,16 +38,18 @@
         </div>
       </div>
     </div>
-    <div class="col-sm-5 mt-2">
-      <label for="phno" class="col-sm-5 control-label">Phone Number*</label>
-      <input type="number" class="form-control" name="phonenumber"  required>
-      <div *ngIf="f.controls['phonenumber'].touched && f.controls['phonenumber'].invalid" class="alert alert-danger mt-2">
-        PHONE NUMBER REQUIRED
+    <div class="row">
+      <div class="col-sm-5 mt-2">
+        <label for="phno" class="col-sm-5 control-label">Phone Number*</label>
+        <input type="number" class="form-control" name="phonenumber"  required>
+        <div *ngIf="f.controls['phonenumber'].touched && f.controls['phonenumber'].invalid" class="alert alert-danger mt-2">
+          PHONE NUMBER REQUIRED
+        </div>
       </div>
-    </div>
-    <div class="col-sm-5 mt-2">
-      <label for="status" class="col-sm-5 control-label">Status</label>
-      <input type="text" class="form-control" name="status" >
+      <div class="col-sm-5 mt-2">
+        <label for="status" class="col-sm-5 control-label">Status</label>
+        <input type="text" class="form-control" name="status">
+      </div>
     </div>
     <button type="submit" class="btn btn-primary mt-3">Submit</button>
   </form>

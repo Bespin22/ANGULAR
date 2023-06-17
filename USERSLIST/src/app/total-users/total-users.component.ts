@@ -17,6 +17,7 @@ interface User {
   templateUrl: './total-users.component.html',
   styleUrls: ['./total-users.component.css']
 })
+
 export class TotalUsersComponent implements OnInit {
   displayedColumns: string[] = ['name', 'gender', 'email', 'status', 'action'];
   dataSource!: MatTableDataSource<User>;
